@@ -8,7 +8,16 @@ tqdm>=4.65.0
 gradio>=4.0.0
 
 # Optional: LaMa inpainting (better quality for wide/long scratches)
-# Uncomment these if you want the "lama" or "hybrid" inpainting modes:
+# Enables the "lama" or "hybrid" inpainting modes.
+#
+# NOTE: simple-lama-inpainting 0.1.2 pins pillow<10.0.0, which downgrades
+# Pillow and conflicts with gradio/scikit-image. The pin is overly strict —
+# the package works fine with modern Pillow. Install in this order:
+#
+#   pip install torch torchvision      # match your CUDA: https://pytorch.org/get-started/locally/
+#   pip install simple-lama-inpainting
+#   pip install --upgrade "pillow>=10.1"   # restore Pillow after the forced downgrade
+#
 # torch>=2.0.0
 # torchvision>=0.15.0
 # simple-lama-inpainting
